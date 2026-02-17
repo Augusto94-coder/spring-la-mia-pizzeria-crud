@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Dettaglio Pizza</title>
+    <th:block th:replace="~{fragments/resources :: headTags}"></th:block>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container mt-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-12 col-md-8 col-lg-6">
+
+                <div class="card shadow-sm">
+
+                    
+                    <img th:src="${pizza.photo}" 
+                         class="card-img-top" 
+                         alt="Pizza"
+                         style="height: 300px; object-fit: cover;">
+
+                    
+                    <div class="card-body text-center">
+
+                        <h2 th:text="${pizza.name}">Nome Pizza</h2>
+
+                        <p class="mt-3" th:text="${pizza.description}">
+                            Descrizione pizza
+                        </p>
+
+                        
+                        <p class="fw-bold mt-3" th:text="${pizza.price} + ' €'">
+                            
+                        </p>
+
+                        
+                        <a th:href="@{/pizzas}" class="btn btn-secondary mt-3">
+                            Torna alla lista
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div th:replace="~{fragments/resources :: scripts}"></div>
+
+</body>
+</html>
