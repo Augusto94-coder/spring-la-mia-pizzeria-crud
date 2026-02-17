@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Lista Pizze</title>
+    <th:block th:replace="~{fragments/resources :: headTags}"></th:block>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <div th:replace="~{fragments/navbar :: navbar}"></div>
+
+    <div class="container mt-4">
+
+        <h1 class="mb-4 text-center">Le nostre pizze</h1>
+
+        <!-- Nessuna pizza -->
+        <div th:if="${pizzas.empty}" class="alert alert-warning text-center">
+            Nessuna pizza disponibile.
+        </div>
+
+        <!-- Griglia -->
+        <div class="row g-4" th:if="${!pizzas.empty}">
+
+            <div class="col-12 col-md-6 col-lg-4" th:each="pizza : ${pizzas}">
+                <div class="card h-100 shadow-sm">
+
+                    <!-- Immagine -->
+                    <img class="card-img-top img-fluid"
+                         th:src="${pizza.photo}"
+                         alt="Pizza"
+                         style="height: 200px; object-fit: cover;">
+
+                    <!-- Body -->
+                    <div class="card-body text-center d-flex flex-column">
+                        <h5 class="card-title" th:text="${pizza.name}">Nome pizza</h5>
+                        <p class="card-text flex-grow-1" th:text="${pizza.description}">Descrizione</p>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Scripts -->
+    <div th:replace="~{fragments/resources :: scripts}"></div>
+
+</body>
+</html>
