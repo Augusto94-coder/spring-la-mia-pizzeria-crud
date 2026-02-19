@@ -1,5 +1,7 @@
 package org.lessons.java.spring_pizzeria.model;
 
+import java.math.BigDecimal;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -34,7 +36,7 @@ public class Pizza {
     @NotNull(message ="Il prezzo non può essere vuoto")
     @Positive(message ="Il prezzo deve essere un numero positivo")
     @Column(nullable = false)
-    private Double price;
+    private BigDecimal price;
     
 
     public Integer getId() {
@@ -69,11 +71,11 @@ public class Pizza {
         this.photo = photo;
     }
 
-    public Double getPrice() {
+    public BigDecimal getPrice() {
         return this.price;
     }
 
-    public void setPrice(Double price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
     
