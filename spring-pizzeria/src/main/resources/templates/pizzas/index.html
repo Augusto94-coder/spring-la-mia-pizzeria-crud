@@ -41,6 +41,13 @@
                         <h5 class="card-title" th:text="'Nome della pizza: ' + ${pizza.name}">Nome pizza</h5>
                         <p class="card-text flex-grow-1" th:text="'Descrizione della pizza: ' + ${pizza.description}">Descrizione</p>
                         <p class="card-text flex-grow-1" th:text="'Prezzo: € ' + ${pizza.price}">Prezzo</p>
+                        <div class="mb-3 d-flex justify-content-between">
+                            <a th:href="@{pizzas/{id}(id = ${pizza.id})}" class="btn btn-primary">Visualizza pizza</a>
+                            <a th:href="@{pizzas/edit/{id}(id = ${pizza.id})}" class="btn btn-success">Modifica pizza</a>
+                            <form action="#" th:action="@{/pizzas/delete/{id}(id = ${pizza.id})}" method="post">
+                                <button type="submit" class="btn btn-danger">Cancella pizza</button>
+                            </form>
+                        </div>
                     </div>
 
                 </div>
